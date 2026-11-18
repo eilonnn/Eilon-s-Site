@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071a33">
+    <meta name="description" content="Live grilling conditions for selected cities across Israel.">
+    <title>Grill Index Israel</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <section class="profile-space" aria-labelledby="profile-title">
+      <div class="profile-content">
+        <img class="profile-photo" src="pic%20for%20website.png" alt="Eilon Ben Ami">
+        <div class="profile-details">
+          <h2 id="profile-title">Eilon Ben Ami</h2>
+          <ul class="profile-links">
+            <li><span>Phone</span><a href="tel:0525444555">0525444555</a></li>
+            <li><span>Email</span><a href="mailto:benamieilon@gmail.com">benamieilon@gmail.com</a></li>
+            <li><span>Email</span><a href="mailto:eilon.ben@campus.technion.ac.il">eilon.ben@campus.technion.ac.il</a></li>
+            <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/eilon-ben-ami-aa2994244">Eilon Ben Ami's profile</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="profile-invitation">What's better than a BBQ with friends? I invite you to explore and find the best conditions for one close to home, and have fun!</p>
+    </section>
+
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Grill Index Israel home">
+        <span class="brand-mark" aria-hidden="true">G</span>
+        <span>GRILL INDEX <span class="brand-region">ISRAEL</span></span>
+      </a>
+      <span class="live-indicator"><span aria-hidden="true"></span> Live conditions</span>
+    </header>
+
+    <main>
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">YOUR LOCAL FORECAST</p>
+          <h1>Is it a good day to grill?</h1>
+        </div>
+        <span class="style-pill"><span aria-hidden="true">●</span> Charcoal</span>
+      </div>
+
+      <div class="maps-grid" aria-label="Grilling condition maps">
+        <section class="map-card" aria-labelledby="scores-title">
+          <div class="card-heading">
+            <div class="heading-copy">
+              <span class="card-kicker">01 / CITY SCOREBOARD</span>
+              <h2 id="scores-title">Israel city scores</h2>
+              <p>Live scores for 15 selected Israeli cities, not every locality.</p>
+            </div>
+            <span class="heading-icon" aria-hidden="true">↗</span>
+          </div>
+          <div class="map-status" id="scores-status" role="status" aria-live="polite">
+            Loading live scores for the selected cities…
+          </div>
+          <div class="map" id="scores-map" role="region" aria-label="Map of live grilling scores for selected Israeli cities"></div>
+        </section>
+
+        <section class="map-card" aria-labelledby="top-title">
+          <div class="card-heading">
+            <div class="heading-copy">
+              <span class="card-kicker">02 / THE LEADERS</span>
+              <h2 id="top-title">Top 3 in Israel</h2>
+              <p>Ranks 15 selected Israeli cities, not every locality; tied cutoff scores are included.</p>
+            </div>
+            <span class="heading-icon" aria-hidden="true">★</span>
+          </div>
+          <div class="map-status" id="top-status" role="status" aria-live="polite">
+            Waiting for city scores…
+          </div>
+          <div class="map" id="top-map" role="region" aria-label="Map highlighting the highest-scoring selected Israeli cities"></div>
+        </section>
+
+        <section class="map-card find-card" aria-labelledby="find-title">
+          <div class="card-heading">
+            <div class="heading-copy">
+              <span class="card-kicker">03 / YOUR NEXT COOKOUT</span>
+              <h2 id="find-title">Find a city</h2>
+              <p>Search for an Israeli city to see its live score and best grilling time today.</p>
+            </div>
+            <span class="heading-icon" aria-hidden="true">⌕</span>
+          </div>
+          <form class="city-search" id="city-search" role="search">
+            <label class="sr-only" for="city-query">Israeli city name</label>
+            <input
+              id="city-query"
+              name="city"
+              type="search"
+              placeholder="Try Haifa or Eilat"
+              autocomplete="off"
+              aria-controls="city-results"
+              aria-expanded="false"
+            >
+            <button type="submit" id="search-button">Search</button>
+          </form>
+          <div id="search-status" class="search-status" role="status" aria-live="polite"></div>
+          <ul class="city-results" id="city-results" role="listbox" aria-label="Israeli city matches" hidden></ul>
+          <div class="city-result" id="city-result" aria-live="polite" hidden></div>
+          <div class="map find-map" id="find-map" role="region" aria-label="Searchable map for an Israeli city"></div>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <span>Weather-aware conditions, refreshed from the Grill Index API.</span>
+        <span>Map tiles © Esri</span>
+      </footer>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="app.js"></script>
+  </body>
+</html>
